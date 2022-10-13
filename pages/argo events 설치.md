@@ -1,0 +1,9 @@
+- [argo events document](https://argoproj.github.io/argo-events/installation/)
+- argo event를 설치하기 전에 **argo workflow**가 **cluster-scope으로 설치**되어있어야함
+- **event bus** : 발생한 event를 event source에서 sensor로 전송시켜주는 역할
+- **event sources** : event가 발생하는 source
+- **sensors** : event 발생을 감지할 경우 특정 동작을 실행(trigger)
+	- argo workflow, lambda, http, kafka 등 다양한 동작을 실행시킬 수 있음
+- 동작
+	- event source에서 event 발생 -> event bus가 source에서 sensor로 event 전송 -> sensor가 trigger 실행
+- [[sqs를 이용한 argo event]]

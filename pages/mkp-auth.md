@@ -1,0 +1,16 @@
+- [SIWE](https://eips.ethereum.org/EIPS/eip-4361) 이용한 인증
+- OAuth 2.0의 password grant 방식
+- ## Flow
+	- 사용자가 지갑(metamask, kaikas,,,) 연결
+	- `chain id`, `public address(account address)`가 인증 서버로 전송
+		- 전송 받은 `chain id`, `public address(account address)`에 해당하는 사용자 존재
+			- DB에 저장된 nonce 값 반환
+		- 사용자 존재 안함
+			- 사용자와 nonce를 생성해 반환
+	- 반환 받은 nonce를 지갑으로 signed한 값(=`signed message`)를 password로, 사용자의 `public address(account address)`를 id로 해서 로그인 시도(= 인증 서버에 전송)
+	- 인증 서버는 받은 `account address`와 `signed message` 사용자 verify
+		- verify -> `signed message`를 recover 해서 `chain id`, `account address`에 해당하는 사용자에 저장된 nonce의 값과 동일한지 확인
+		- `chain_id|account_address`의 형식으로 전송 받음
+	- 사용자 검증이 되면 `access token`과 `refresh token` 반환
+- [[nonce 생성]]
+- [[token 발급]]
