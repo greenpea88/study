@@ -8,4 +8,3 @@
   heading:: true
 	- [[argo events 설치]]
 - [[artifact]]
-- [[tips]]
