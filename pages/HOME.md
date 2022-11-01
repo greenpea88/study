@@ -2,3 +2,5 @@
 - [[mkp-auth]]
 - [[K8S를 이용한 배포]]
 - [[argo workflow 및 argo events 사용하기]]
+- [[Admin page w/refine]]
+- [[Slack Bot🤖]]

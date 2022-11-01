@@ -1,0 +1,2 @@
+- [Slack api를 이용한 Slack Bot 만들어보기](https://velog.io/@___pepper/Slack-bot-Slack-api%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9CSlack-Bot-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0)
+- [slack-sdk 활용](https://velog.io/@___pepper/Slack-bot-slack-sdk)
