@@ -1,0 +1,31 @@
+- ### 경량으로 admin page를 만드는 것에 [[Refine]]이 적절함
+-
+- [onboarding tutorial github](https://github.com/yoophi/refine-tutorial)
+-
+- API 서버(`/admin/xxx/api`) 에서 값을 가져오는 것이 목표
+-
+- ## Admin Page Flow
+	- user는 `Admin Frontend`로 접근을 함(`Admin Frontend`와 `Auth Proxy`는 하나의 ingress로 묶여 있음)
+		- `Auth Proxy` 사용 이유? = CORS 방지를 위해서?
+	- **`keycloak`**을 통해서 user가 `username`, `password` 를 이용해서 `access token`과 `refresh token`을 받음 = `password grant`
+	- 받은 `token` 을 이용해서 `API Gateway` 를 보내면 `kong plugin`이 **sub, email**을 `header`에 붙여서 API 서버를 호출함
+	- `token`은 `JWT token`
+	-
+- ## front 상태 관리
+	- 변수의 값을 감지하는 것 -> 값의 변화가 일어나면 그걸 감지해서 관리하는 것을 상태 관리라고 함
+	- `[a, setA] = useState()`
+	- a의 값을 변경하기 위해서는 `setA(1)`로 실행
+	- a는 변수라기 보다는 **상태**
+	- ### hook
+		- **component 안에서만** 돌아가는 함수
+		- `use`로 시작하는 함수들
+		- `useState()` : component 상태 관리 시 (뜸/안뜸)
+		- `useEffet()` : component의 lifecycle 관리 시
+			- `useEffect(() => {초기화 과정}, [의존값])`
+			- = side effect 관리
+			- component 생성 / 사라짐일 때 어떤 일이 일어나는지
+		- 상태 관리를 쉽게하기 위해 **react hook form**을 사용
+			- [react hook form](https://codesandbox.io/s/9ltw0)
+			- `{...register("category.id", { required: true })}` : register 함수에서 받은 값을 value로 넣어줌
+			-
+- fresh :  cache가 되어있는 상태 / stale : cache 사라짐
