@@ -1,0 +1,9 @@
+- open id server
+- opensource
+- `group`을 이용해서 user를 등록해서 사용할 수 있음
+- client = application / user = 사용자(login하는 주체)
+- Access Type
+	- confidential : client id + client secret
+	- public : client id
+	- Bearer
+- ### Helm char

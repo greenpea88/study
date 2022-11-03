@@ -1,0 +1,16 @@
+- ## Axios interceptor
+- cofig : header + access + req?
+- ### Req
+	- **Success**
+		- access token을 header 포함
+	- **Fail**
+		- Res fail에서 handling 하지 않음
+- ### Res
+	- **Success**
+	- **Fail**
+		- access token 없음 (401) + 첫번째 실패
+			- request 객체의 retry의 값을 true로 설정
+			- retry의 값이 true이면 재시도하지 않음
+		- refresh token check
+			- 존재 : access token 재발급 -> local storage 저장 -> 실패 Req 새 access token으로 재요청
+			- 없음 : logout -> login page로 이동
